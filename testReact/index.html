@@ -12,10 +12,22 @@
 </div>
 <script type="text/jsx">
 	var TestClick = React.createClass({
+     	handlerClick: function(event) {
+     		var tipE = React.findDOMNode(this.refs.tip);
+     		if(tipE.style.display === "none"){
+     			tipE.style.display = "inline";
+     			tipE.style.color = "#ff5d16";
+     		}else{
+     			tipE.style.display = "none";
+     			tipE.style.color = "none";
+     		}
+     		event.stopPropagation();
+     		event.preventDefault();
+     	},
      	render: function() {
      		return (
      			<div>
-     				<button>显示/隐藏</button><span>测试</span>
+     				<button onClick={this.handlerClick}>显示/隐藏</button><span ref="tip">测试</span>
      			</div>
      		)
      	}
