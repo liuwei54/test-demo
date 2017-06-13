@@ -32,10 +32,26 @@
      		)
      	}
 	});
+	var TestInput = React.createClass({
+		getInitialState: function() {
+			return {
+				inputContent: ''
+			}
+		},
+		render: function() {
+			return (
+				<div>
+					<input type="text" /><span>{this.state.inputContent}</span>
+				</div>
+			)
+		}
+	});
 
 	React.render(
 		<div>
 			<TestClick />
+			<br /><br />
+			<TestInput />
 		</div>,
 	document.getElementById('container'));
 </script>
