@@ -38,10 +38,17 @@
 				inputContent: ''
 			}
 		},
+		handlerChange: function(event){
+			this.setState({
+				inputContent: event.target.value
+			})
+			event.stopPropagation();
+			event.preventDefault();
+		},
 		render: function() {
 			return (
 				<div>
-					<input type="text" /><span>{this.state.inputContent}</span>
+					<input type="text" onChange={this.handlerChange}/><span>{this.state.inputContent}</span>
 				</div>
 			)
 		}
